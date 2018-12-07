@@ -14,4 +14,3 @@ c:\users\one1bit\source\repos\LogRy\LogRy\obj\Debug\LogRy.exe
 c:\users\one1bit\source\repos\LogRy\LogRy\obj\Debug\LogRy.pdb
 C:\Users\One1Bit\source\repos\LogRy\LogRy\obj\Debug\Setting.baml
 C:\Users\One1Bit\source\repos\LogRy\LogRy\obj\Debug\Setting.g.cs
-C:\Users\One1Bit\source\repos\LogRy\LogRy\obj\Debug\LogRy.csprojAssemblyReference.cache
