@@ -7,3 +7,4 @@ Ver 1.1
  2. Create a folder and open Git Bush (right mouse button->Git Bush here)
  3. enter this command:
  $ git clone https://github.com/One1Bit/LogRy
+
