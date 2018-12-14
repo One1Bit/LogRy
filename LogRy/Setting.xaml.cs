@@ -43,7 +43,27 @@ namespace LogRy
 
         private void okClick(object sender, RoutedEventArgs e)
         {
+            string result;
+            result = RadioButtonChecked(sender, e);
+
+        }
+
+    
+
+        private string RadioButtonChecked(object sender, RoutedEventArgs e)
+        {
             
+            if (tab.IsChecked == true)
+                return "    ";
+            else if (semicolon.IsChecked == true)
+                return ";";
+            else if(colon.IsChecked == true)
+                return ":";
+            else if (other.IsChecked == true)
+                return TextBoxOther.ToString();
+            else
+            MessageBox.Show("Error in Setting Split!");
+            return null;
         }
     }
 }

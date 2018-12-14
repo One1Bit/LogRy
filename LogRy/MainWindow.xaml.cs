@@ -34,7 +34,7 @@ namespace LogRy
                         string line;
                         while ((line = sr.ReadLine()) != null)
                         {
-                            var parsed = line.Split(';'); //Делим строку по символу &, например
+                            var parsed = line.Split(';'); //Делим строку по символу ;
                             list.Add(new DataTable(parsed[0], parsed[1], parsed[2], parsed[3]));
                         }
                     }
