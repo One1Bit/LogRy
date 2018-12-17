@@ -1,27 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Diagnostics;
-using System.Windows.Automation;
-using System.Windows.Controls.Primitives;
-using System.Windows.Ink;
-using System.Windows.Markup;
-using System.Windows.Media.Animation;
-using System.Windows.Media.Effects;
-using System.Windows.Media.Media3D;
-using System.Windows.Media.TextFormatting;
-using System.Windows.Navigation;
-using System.Windows.Shell;
+
 namespace LogRy
 {
     /// <summary>
@@ -65,5 +45,45 @@ namespace LogRy
             MessageBox.Show("Error in Setting Split!");
             return null;
         }
+
+        private void ComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (StackPanelColName != null)
+                StackPanelColName.Children.Clear();
+            if (StackPanelDataType != null)
+                StackPanelDataType.Children.Clear();
+            string localVar="4";
+            ComboBoxItem selectedItem = (ComboBoxItem)ComboBox.SelectedItem;
+            if (selectedItem.Content != null)
+            {
+                localVar = selectedItem.Content.ToString();
+                int i = Convert.ToInt32(localVar);
+                TextBox[] TextBoxMass = new TextBox[i];
+                ComboBox[] ComboBoxMass = new ComboBox[i];
+
+                for (int j = 0; j < i; j++)
+                {
+                    TextBox TextBoxN = new TextBox();
+                    TextBoxN.Name = $"TextBoxName{j+1}";
+                    TextBoxN.Text = "";
+                    TextBoxN.Height = 25;
+                    StackPanelColName.Children.Add(TextBoxN);
+                    //StackPanelColName.RegisterName(TextBoxN.Name, TextBoxN);
+                    ComboBox ComboBoxN = new ComboBox();
+                    ComboBoxN.Height = 25;
+                    ComboBoxN.Name = $"DataTypeCombpBox{j+1}";
+                    ComboBoxN.Items.Add("DateTime");
+                    ComboBoxN.Items.Add("String");
+                    ComboBoxN.Items.Add("Int");
+                    StackPanelDataType.Children.Add(ComboBoxN);
+                    TextBoxMass[j] = TextBoxN;
+                    ComboBoxMass[j] = ComboBoxN;
+                }
+            }
+
+        }
+
+       
+        
     }
 }

@@ -101,12 +101,12 @@ namespace LogRy
             this.DateTime = col1;
             this.Level = col2;
             this.Content = col3;
-            this.Massage = col4;
+            this.Message = col4;
         }
         public string DateTime { get; set; }
         public string Level { get; set; }
         public string Content { get; set; }
-        public string Massage { get; set; }
+        public string Message { get; set; }
 
     }
 }

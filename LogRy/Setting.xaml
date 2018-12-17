@@ -14,16 +14,51 @@
             <ColumnDefinition Width="12*"/>
         </Grid.ColumnDefinitions>
         <TreeView x:Name="tv" Margin="8,8,8,22">
-            <TreeViewItem x:Name="Columns" Header="Columns"/>
-            <TreeViewItem x:Name="Split" Header="Split"/>
+            <TreeViewItem x:Name="Columns" Header="Columns" />
+            <TreeViewItem x:Name="Split" Header="Split" />
         </TreeView>
         <TabControl x:Name="tc" Grid.Column="1" Margin="8,8,8,56" Background="#FFE4E4E4" BorderBrush="#FFE4E4E4" Grid.ColumnSpan="2">
             <TabControl.Items>
                 <TabItem x:Name="Col" Width="0" Height="0" Background="#FFE4E4E4" IsSelected="{Binding ElementName=Columns, Path=IsSelected}">
                     <Grid Background="#FFE4E4E4" >
                         <TextBlock FontSize="16" TextDecorations="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0" RenderTransformOrigin="0.5,0.5"> Setting the number and name of the columns</TextBlock>
-                        <Slider Value="0" Minimum="3" Maximum="7" SelectionStart="3" Height="30" 
-        IsSelectionRangeEnabled="True" Background="{x:Null}" Width="200" HorizontalAlignment="Left" Margin="20,0,0,179" VerticalAlignment="Center" SmallChange="1" AutoToolTipPlacement="TopLeft" TickFrequency="3"/>
+                        <ComboBox HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Width="42" SelectionChanged="ComboBoxSelectionChanged" Name="ComboBox">
+                            <ComboBoxItem>3</ComboBoxItem>
+                            <ComboBoxItem IsSelected="True">4</ComboBoxItem>
+                            <ComboBoxItem>5</ComboBoxItem>
+                            <ComboBoxItem>6</ComboBoxItem>
+                            <ComboBoxItem>7</ComboBoxItem>
+                        </ComboBox>
+                        <StackPanel Name="StackPanelColName" HorizontalAlignment="Left" Height="211" Margin="10,77,0,0" VerticalAlignment="Top" Width="144">
+                            <TextBox Height="25">Date Time</TextBox>
+                            <TextBox Height="25">Level</TextBox>
+                            <TextBox Height="25">Content</TextBox>
+                            <TextBox Height="25">Message</TextBox>
+                        </StackPanel>
+                        <StackPanel Name="StackPanelDataType" HorizontalAlignment="Left" Height="211" Margin="177,77,0,0" VerticalAlignment="Top" Width="144">
+                            <ComboBox VerticalAlignment="Top"  Margin="0,0,0,0" Height="25">
+                                <ComboBoxItem  IsSelected="True" Content="Data Time"/>
+                                <ComboBoxItem Content="String"/>
+                                <ComboBoxItem Content="Int"/>
+                            </ComboBox>
+                            <ComboBox VerticalAlignment="Top"  Margin="0,0,0,0" Height="25">
+                                <ComboBoxItem Content="Data Time"/>
+                                <ComboBoxItem IsSelected="True"  Content="String"/>
+                                <ComboBoxItem Content="Int"/>
+                            </ComboBox>
+                            <ComboBox VerticalAlignment="Top"  Margin="0,0,0,0" Height="25">
+                                <ComboBoxItem  Content="Data Time"/>
+                                <ComboBoxItem IsSelected="True"   Content="String"/>
+                                <ComboBoxItem Content="Int"/>
+                            </ComboBox>
+                            <ComboBox VerticalAlignment="Top"  Margin="0,0,0,0" Height="25">
+                                <ComboBoxItem Content="Data Time"/>
+                                <ComboBoxItem IsSelected="True"  Content="String"/>
+                                <ComboBoxItem Content="Int"/>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <TextBlock HorizontalAlignment="Left" Margin="57,42,0,0" TextWrapping="Wrap" Text="Number of columns" VerticalAlignment="Top" Height="22" Width="140" FontSize="14"/>
                     </Grid>
                 </TabItem>
                 <TabItem x:Name="SplitCol" Width="0" Height="0" Background="#FFE4E4E4" IsSelected="{Binding ElementName=Split, Path=IsSelected}" FontSize="14">
