@@ -1,0 +1,42 @@
+﻿<Window x:Class="LogRy.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LogRy"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="LogRy" Height="450" Width="895.531" WindowStartupLocation="CenterScreen">
+    <Grid RenderTransformOrigin="0.53,0.545">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Menu Height="25" VerticalAlignment="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="Open new log file" Click="OpenNewLogClick" ></MenuItem>
+                <Separator />
+                <MenuItem Header="Open build in log" Click="OpenBuildInLogClick" ></MenuItem>
+                <Separator />
+                <MenuItem Header="Exit" Click="ExitClick"></MenuItem>
+                <Separator />
+                
+            </MenuItem>
+            <MenuItem Header="Edit" >
+                <MenuItem Header="Clear" Click="ClearClick"></MenuItem>
+                <Separator />
+            </MenuItem>
+            <MenuItem Header="Search" ></MenuItem>
+            <MenuItem Header="Settings" Click="SettingClick"></MenuItem>
+            <MenuItem Header="Info" ></MenuItem>
+
+
+        </Menu>
+
+        <DataGrid Name="DataGrid"  Margin="0,25,0,0" IsReadOnly="True">
+
+        </DataGrid>
+
+
+    </Grid>
+</Window>
