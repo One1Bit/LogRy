@@ -9,6 +9,7 @@ namespace LogRy
     /// </summary>
     public partial class Setting : Window
     {
+
         
 
         public Setting()
@@ -16,19 +17,7 @@ namespace LogRy
             InitializeComponent();
         }
 
-        private void clClick(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
 
-        private void okClick(object sender, RoutedEventArgs e)
-        {
-            string result;
-            result = RadioButtonChecked(sender, e);
-
-        }
-
-    
 
         private string RadioButtonChecked(object sender, RoutedEventArgs e)
         {
@@ -40,14 +29,16 @@ namespace LogRy
             else if(colon.IsChecked == true)
                 return ":";
             else if (other.IsChecked == true)
-                return TextBoxOther.ToString();
+                return Convert.ToString(TextBoxOther.Text);
             else
             MessageBox.Show("Error in Setting Split!");
             return null;
         }
+       
 
         private void ComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            int i=0;
             if (StackPanelColName != null)
                 StackPanelColName.Children.Clear();
             if (StackPanelDataType != null)
@@ -57,7 +48,7 @@ namespace LogRy
             if (selectedItem.Content != null)
             {
                 localVar = selectedItem.Content.ToString();
-                int i = Convert.ToInt32(localVar);
+                i = Convert.ToInt32(localVar);
                 TextBox[] TextBoxMass = new TextBox[i];
                 ComboBox[] ComboBoxMass = new ComboBox[i];
 
@@ -80,10 +71,20 @@ namespace LogRy
                     ComboBoxMass[j] = ComboBoxN;
                 }
             }
+          
+        }
+
+        private void ClClick(object sender, RoutedEventArgs e)
+        {
 
         }
 
-       
-        
+        private void OkClick(object sender, RoutedEventArgs e)
+        {
+            string result;
+            result = RadioButtonChecked(sender, e);
+            DataResult.ResultSplitSetting = Convert.ToString(result);
+            this.Close();
+        }
     }
 }

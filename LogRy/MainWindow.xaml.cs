@@ -4,14 +4,38 @@ using System.Windows;
 using System.Windows.Controls;
 using System.IO;
 using System;
+using Xunit;
 
 
+namespace YourProject.Tests
+{
+    public static class MyAssert
+    {
+        public static void Throws<T>(Action func) where T : Exception
+        {
+            var exceptionThrown = false;
+            try
+            {
+                func.Invoke();
+            }
+            catch (T)
+            {
+                exceptionThrown = true;
+            }
 
+            if (!exceptionThrown)
+            {
+                throw new AssertFailedException(
+                String.Format("An exception of type {0} was expected, but not thrown", typeof(T))
+                );
+            }
+        }
+    }
+
+}
 namespace LogRy
 {
-    /// <summary>
-    /// Логика взаимодействия для Window1.xaml
-    /// </summary>
+   
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -20,9 +44,14 @@ namespace LogRy
         }
 
 
-
-        private void OpenNewLogClick(object sender, RoutedEventArgs e)
+    private void OpenNewLogClick(object sender, RoutedEventArgs e)
         {
+            string Split = DataResult.ResultSplitSetting;
+            if (Split == null)
+            {
+                MessageBox.Show("Error! Split = ;");
+                Split = ";";
+            }
             var fileDialog = new System.Windows.Forms.OpenFileDialog();
             List<DataTable> list = new List<DataTable>();
             if (fileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -34,7 +63,7 @@ namespace LogRy
                         string line;
                         while ((line = sr.ReadLine()) != null)
                         {
-                            var parsed = line.Split(';'); //Делим строку по символу ;
+                            var parsed = line.Split(Convert.ToChar(Split)); //Делим строку по символу ;
                             list.Add(new DataTable(parsed[0], parsed[1], parsed[2], parsed[3]));
                         }
                     }
@@ -89,8 +118,12 @@ namespace LogRy
 
         private void SettingClick(object sender, RoutedEventArgs e)
         {
-            Setting SettingAll = new Setting();
+            Setting SettingAll = new Setting
+            {
+                Owner = this
+            };
             SettingAll.Show();
+
         }
     }
 
@@ -108,5 +141,9 @@ namespace LogRy
         public string Content { get; set; }
         public string Message { get; set; }
 
+    }
+    class DataResult
+    {
+        public static string ResultSplitSetting { get; set; }
     }
 }
