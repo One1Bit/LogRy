@@ -30,33 +30,15 @@
                             <ComboBoxItem>7</ComboBoxItem>
                         </ComboBox>
                         <StackPanel Name="StackPanelColName" HorizontalAlignment="Left" Height="211" Margin="10,77,0,0" VerticalAlignment="Top" Width="144">
-                            <TextBox Height="25">Date Time</TextBox>
-                            <TextBox Height="25">Level</TextBox>
-                            <TextBox Height="25">Content</TextBox>
-                            <TextBox Height="25">Message</TextBox>
+                            <TextBox Height="25" Name="TB1">Date Time</TextBox>
+                            <TextBox Height="25" Name="TB2">Level2</TextBox>
+                            <TextBox Height="25" Name="TB3">Content</TextBox>
+                            <TextBox Height="25" Name="TB4">Message</TextBox>
+                            <TextBox Height="25" Name="TB5" Visibility="Hidden"></TextBox>
+                            <TextBox Height="25" Name="TB6" Visibility="Hidden"></TextBox>
+                            <TextBox Height="25" Name="TB7" Visibility="Hidden"></TextBox>
                         </StackPanel>
-                        <StackPanel Name="StackPanelDataType" HorizontalAlignment="Left" Height="211" Margin="177,77,0,0" VerticalAlignment="Top" Width="144">
-                            <ComboBox VerticalAlignment="Top"  Margin="0,0,0,0" Height="25">
-                                <ComboBoxItem  IsSelected="True" Content="Data Time"/>
-                                <ComboBoxItem Content="String"/>
-                                <ComboBoxItem Content="Int"/>
-                            </ComboBox>
-                            <ComboBox VerticalAlignment="Top"  Margin="0,0,0,0" Height="25">
-                                <ComboBoxItem Content="Data Time"/>
-                                <ComboBoxItem IsSelected="True"  Content="String"/>
-                                <ComboBoxItem Content="Int"/>
-                            </ComboBox>
-                            <ComboBox VerticalAlignment="Top"  Margin="0,0,0,0" Height="25">
-                                <ComboBoxItem  Content="Data Time"/>
-                                <ComboBoxItem IsSelected="True"   Content="String"/>
-                                <ComboBoxItem Content="Int"/>
-                            </ComboBox>
-                            <ComboBox VerticalAlignment="Top"  Margin="0,0,0,0" Height="25">
-                                <ComboBoxItem Content="Data Time"/>
-                                <ComboBoxItem IsSelected="True"  Content="String"/>
-                                <ComboBoxItem Content="Int"/>
-                            </ComboBox>
-                        </StackPanel>
+                        
 
                         <TextBlock HorizontalAlignment="Left" Margin="57,42,0,0" TextWrapping="Wrap" Text="Number of columns" VerticalAlignment="Top" Height="22" Width="140" FontSize="14"/>
                     </Grid>
@@ -76,7 +58,7 @@
             </TabControl.Items>
         </TabControl>
 
-        <Button x:Name="cl" Click="clClick"  Content="Cancel" Grid.Column="1" Height="24" Margin="0,0,16,8" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="80" Grid.ColumnSpan="2"/>
-        <Button x:Name="ok" Click="okClick" Content="Ок" Grid.Column="1" Height="24" Margin="0,0,76.404,8" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="80"/>
+        <Button x:Name="cl" Click="ClClick"  Content="Cancel" Grid.Column="1" Height="24" Margin="0,0,16,8" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="80" Grid.ColumnSpan="2"/>
+        <Button x:Name="ok" Click="OkClick" Content="Ок" Grid.Column="1" Height="24" Margin="0,0,76.404,8" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="80"/>
     </Grid>
 </Window>
