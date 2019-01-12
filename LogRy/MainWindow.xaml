@@ -28,7 +28,9 @@
             </MenuItem>
             <MenuItem Header="Search" ></MenuItem>
             <MenuItem Header="Settings" Click="SettingClick"></MenuItem>
-            <MenuItem Header="Info" ></MenuItem>
+            <MenuItem Header="Info" >
+                
+            </MenuItem>
 
 
         </Menu>
