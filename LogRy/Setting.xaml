@@ -31,7 +31,7 @@
                         </ComboBox>
                         <StackPanel Name="StackPanelColName" HorizontalAlignment="Left" Height="211" Margin="10,77,0,0" VerticalAlignment="Top" Width="144">
                             <TextBox Height="25" Name="TB1">Date Time</TextBox>
-                            <TextBox Height="25" Name="TB2">Level2</TextBox>
+                            <TextBox Height="25" Name="TB2">Level</TextBox>
                             <TextBox Height="25" Name="TB3">Content</TextBox>
                             <TextBox Height="25" Name="TB4">Message</TextBox>
                             <TextBox Height="25" Name="TB5" Visibility="Hidden"></TextBox>

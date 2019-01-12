@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace LogRy
 {
@@ -48,7 +49,7 @@ namespace LogRy
         }
       
         int ResultCountColumns;
-
+        TextBox[] TextBoxMass;
 
         private void ComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -62,8 +63,9 @@ namespace LogRy
             {
                 localVar = selectedItem.Content.ToString();
                 i = Convert.ToInt32(localVar);
-                TextBox[] TextBoxMass = new TextBox[i];
+                TextBoxMass = new TextBox[i] ;
                 ResultCountColumns = i;
+                Binding binding = new Binding();
 
 
                 for (int j = 0; j < i; j++)
@@ -74,7 +76,6 @@ namespace LogRy
                         Text = "",
                         Height = 25
                     };
-
                     StackPanelColName.Children.Add(TextBoxMass[j]);
                     
                 }
