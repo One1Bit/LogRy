@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Input;
 
 namespace LogRy
 {
@@ -40,26 +41,21 @@ namespace LogRy
                 DataResult.ResultColumns[5] = Convert.ToString(TB6.Text);
                 DataResult.ResultColumns[6] = Convert.ToString(TB7.Text);
         }   
-       int ResultCountColumns;
-
-     private double RadioButtonColorationChecked(object sender, RoutedEventArgs e)
+       
+         private string RadioButtonColorationChecked(object sender, RoutedEventArgs e)
         {
-            double ColorationX=0;
             if (RedC.IsChecked == true)
-                return ColorationX = 1;
+                return "WARN";
             else if (YellowC.IsChecked == true)
-                return ColorationX = 2;
+                return "INFO";
             else if (BlueC.IsChecked == true)
-                return ColorationX = 3;
+                return "WORK";
             else
-                return ColorationX = 0;
-
+                return "";
         }
-        
-      
        /*& int ResultCountColumns;
         TextBox[] TextBoxMass;
-
+        */
        /* private void ComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int i = 0;
@@ -90,47 +86,27 @@ namespace LogRy
                 }
             }
         }*/
-
         private void ClClick(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
+
         private void OkClick(object sender, RoutedEventArgs e)
         {
             string result;
-            double result1;
+            string result1;
             result = RadioButtonSplitChecked(sender, e);
             result1 = RadioButtonColorationChecked(sender, e);
+            Constats.ColorationF = result1;
             if (result == null)
             {
                 result = ";";
             }
             DataResult.ResultSplitSetting = Convert.ToString(result);
-/*
-             if(result1 == 1)
-             {
-                        
- 
-                                dataGridView.Rows[i].Cells[1].Style.BackColor = Color.Yellow; 
-           
-             }
-            
-             if(result1 == 2)
-            {
-            }
-            */
-            /* if(result1 == 3)
-            {
-            }
-            */
-
-
-          /*  if (ResultCountColumns == 0)
-                DataResult.ResultCountColumns = 4;
-            else
-            DataResult.ResultCountColumns = ResultCountColumns;
-            ComboBoxColumsChecked(sender, e);
-            */
             this.Close();
         }
     }

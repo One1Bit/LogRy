@@ -5,19 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LogRy"
         xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
-        mc:Ignorable="d"
-        Title="LogRy" Height="450" Width="895.531" WindowStartupLocation="CenterScreen" Name="UI">
-    <Grid RenderTransformOrigin="0.53,0.545" Background="#FFF0F0F0">
+        mc:Ignorable="d" 
+        Title="LogRy" Height="450" Width="895.531" WindowStyle="None" WindowStartupLocation="CenterScreen" Name="UI">
+    <Grid RenderTransformOrigin="0.53,0.545" MouseLeftButtonDown="Window_MouseLeftButtonDown" Background="LightYellow">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="97*"/>
-            <ColumnDefinition Width="125*"/>
+            <ColumnDefinition Width="388*"/>
+            <ColumnDefinition Width="129*"/>
+            <ColumnDefinition Width="372*"/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Menu Height="25" VerticalAlignment="Top" Grid.ColumnSpan="3" Margin="0,0,-0.334,0">
-            <MenuItem Header="File">
+        <Menu MouseLeftButtonDown="Window_MouseLeftButtonDown" Height="25" VerticalAlignment="Top" Background="LightYellow" Margin="0,0,174,0">
+            <MenuItem Header="File" Click="MenuItem_Click">
                 <MenuItem Header="Open new log file" Click="OpenNewLogClick" ></MenuItem>
                 <Separator />
-                <MenuItem Header="Open build in log" Click="OpenBuildInLogClick" ></MenuItem>
+                <MenuItem Header="Open test file" Click="OpenBuildInLogClick" ></MenuItem>
                 <Separator />
                 <MenuItem Header="Exit" Click="ExitClick"></MenuItem>
                 <Separator />
@@ -29,15 +30,13 @@
             </MenuItem>
             <MenuItem Header="Search" ></MenuItem>
             <MenuItem Header="Settings" Click="SettingClick"></MenuItem>
-            <MenuItem Header="Info" >
-                
+            <MenuItem Header="Info"  >
+                <TextBox>Создано обществом странных существ (студенотов)</TextBox>
             </MenuItem>
 
-
         </Menu>
-       
-        <DataGrid Name="DataGrid"  Margin="0,25,111.667,19.667" IsReadOnly="True" LoadingRow="DataGrid_LoadingRow" Grid.ColumnSpan="2"/>
-        <StackPanel Grid.Column="1" Height="114" Margin="0,25,-0.333,0" VerticalAlignment="Top" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="112">
+        <DataGrid Name="DataGrid"  Margin="10,25,112,40" IsReadOnly="True" LoadingRow="DataGrid_LoadingRow" Grid.ColumnSpan="3" SelectionChanged="DataGrid_SelectionChanged_1"/>
+        <StackPanel Grid.Column="2" Height="114" Margin="0,30,-15,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="112" Grid.ColumnSpan="2">
             <CheckBox Content="DateTime" Name="CheckBox1" Checked="CheckBox1_Checked" Unchecked="CheckBox1_Unchecked"/>
             <CheckBox Content="Level" Name="CheckBox2" Checked="CheckBox2_Checked" Unchecked="CheckBox2_Unchecked"/>
             <CheckBox Content="Content" Name="CheckBox3" Checked="CheckBox3_Checked" Unchecked="CheckBox3_Unchecked"/>
@@ -46,7 +45,14 @@
             <CheckBox Content="Name" Name="CheckBox6" Checked="CheckBox6_Checked" Unchecked="CheckBox6_Unchecked"/>
             <CheckBox Content="Data" Name="CheckBox7" Checked="CheckBox7_Checked" Unchecked="CheckBox7_Unchecked"/>
         </StackPanel>
-        
+        <Menu Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Background="LightYellow" Grid.Column="2" Margin="303,0,0,0">
+            <MenuItem Header="_" Click="MinimizeClick"/>
+            <MenuItem Header="O" Click="MaximizeClick"/>
+            <MenuItem Header="X" VerticalAlignment="Stretch" Click="ExitClick" />
+        </Menu>
+        <Menu Height="40" VerticalAlignment="Top" HorizontalAlignment="Right" Background="LightYellow" Margin="0,402,10,0" Width="481" Grid.ColumnSpan="2">
+                
+        </Menu>
 
 
 
