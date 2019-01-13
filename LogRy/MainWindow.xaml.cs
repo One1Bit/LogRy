@@ -5,7 +5,7 @@ using System.Windows.Controls;
 using System.IO;
 using System;
 using Xunit;
-
+using System.Windows.Data;
 
 namespace YourProject.Tests
 {
@@ -38,10 +38,13 @@ namespace LogRy
    
     public partial class MainWindow : Window
     {
+       
         public MainWindow()
         {
             InitializeComponent();
+            
         }
+       
 
 
     private void OpenNewLogClick(object sender, RoutedEventArgs e)
@@ -141,6 +144,151 @@ namespace LogRy
             SettingAll.Show();
 
         }
+        void DataGrid_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            e.Row.Header = (e.Row.GetIndex()+1).ToString();
+        }
+
+        private void CheckBox1_Checked(object sender, RoutedEventArgs e)
+        {
+            if (DataGrid.Columns.Count > 0)
+            {
+               
+                DataGrid.Columns[0].Visibility = Visibility.Collapsed;
+                
+            }
+        }
+
+        private void CheckBox1_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (DataGrid.Columns.Count > 0)
+            {
+
+                DataGrid.Columns[0].Visibility = Visibility.Visible;
+
+            }
+        }
+
+        private void CheckBox2_Checked(object sender, RoutedEventArgs e)
+        {
+            if(DataGrid.Columns.Count > 0)
+            {
+                
+                DataGrid.Columns[1].Visibility = Visibility.Collapsed;
+
+            }
+        }
+
+        private void CheckBox2_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (DataGrid.Columns.Count > 0)
+            {
+
+                DataGrid.Columns[1].Visibility = Visibility.Visible;
+
+            }
+        }
+
+        private void CheckBox3_Checked(object sender, RoutedEventArgs e)
+        {
+            if (DataGrid.Columns.Count > 0)
+            {
+
+                DataGrid.Columns[2].Visibility = Visibility.Collapsed;
+
+            }
+        }
+
+        private void CheckBox3_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (DataGrid.Columns.Count > 0)
+            {
+
+                DataGrid.Columns[2].Visibility = Visibility.Visible;
+
+            }
+        }
+
+        private void CheckBox4_Checked(object sender, RoutedEventArgs e)
+        {
+            if (DataGrid.Columns.Count > 0)
+            {
+
+                DataGrid.Columns[3].Visibility = Visibility.Collapsed;
+
+            }
+        }
+
+        private void CheckBox4_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (DataGrid.Columns.Count > 0)
+            {
+
+                DataGrid.Columns[3].Visibility = Visibility.Visible;
+
+            }
+        }
+
+        private void CheckBox5_Checked(object sender, RoutedEventArgs e)
+        {
+            if (DataGrid.Columns.Count > 0)
+            {
+
+                DataGrid.Columns[4].Visibility = Visibility.Collapsed;
+
+            }
+        }
+
+        private void CheckBox5_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (DataGrid.Columns.Count > 0)
+            {
+
+                DataGrid.Columns[4].Visibility = Visibility.Visible;
+
+            }
+        }
+
+        private void CheckBox6_Checked(object sender, RoutedEventArgs e)
+        {
+            if (DataGrid.Columns.Count > 0)
+            {
+
+                DataGrid.Columns[5].Visibility = Visibility.Collapsed;
+
+            }
+        }
+
+        private void CheckBox6_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (DataGrid.Columns.Count > 0)
+            {
+
+                DataGrid.Columns[5].Visibility = Visibility.Visible;
+
+            }
+        }
+
+        private void CheckBox7_Checked(object sender, RoutedEventArgs e)
+        {
+            if (DataGrid.Columns.Count > 0)
+            {
+
+                DataGrid.Columns[6].Visibility = Visibility.Collapsed;
+
+            }
+        }
+
+        private void CheckBox7_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (DataGrid.Columns.Count > 0)
+            {
+                DataGrid.Columns[6].Visibility = Visibility.Visible;
+
+            }
+        }
+
+       
     }
 
     class DataTable
@@ -168,25 +316,25 @@ namespace LogRy
                 switch (j)
                 {
                     case 0:
-                        this.Col1 = par[j];
+                        this.DateTime = par[j];
                         break;
                     case 1:
-                        this.Col2 = par[j];
+                        this.Level = par[j];
                         break;
                     case 2:
-                        this.Col3 = par[j];
+                        this.Content = par[j];
                         break;
                     case 3:
-                        this.Col4 = par[j];
+                        this.Message = par[j];
                         break;
                     case 4:
-                        this.Col5 = par[j];
+                        this.Comment = par[j];
                         break;
                     case 5:
-                        this.Col6 = par[j];
+                        this.Name = par[j];
                         break;
                     case 6:
-                        this.Col7 = par[j];
+                        this.Data = par[j];
                         break;
                     default:
                         break;
@@ -196,13 +344,13 @@ namespace LogRy
             }
 
         }
-        public string Col1 { get; set; }
-        public string Col2 { get; set; }
-        public string Col3 { get; set; }
-        public string Col4 { get; set; }
-        public string Col5 { get; set; }
-        public string Col6 { get; set; }
-        public string Col7 { get; set; }
+        public string DateTime { get; set; }
+        public string Level { get; set; }
+        public string Content { get; set; }
+        public string Message { get; set; }
+        public string Comment { get; set; }
+        public string Name { get; set; }
+        public string Data { get; set; }
 
 
     }

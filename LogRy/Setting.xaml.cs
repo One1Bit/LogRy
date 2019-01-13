@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace LogRy
 {
@@ -54,6 +55,10 @@ namespace LogRy
                 return ColorationX = 0;
 
         }
+        
+      
+       /*& int ResultCountColumns;
+        TextBox[] TextBoxMass;
 
        /* private void ComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -66,8 +71,13 @@ namespace LogRy
             {
                 localVar = selectedItem.Content.ToString();
                 i = Convert.ToInt32(localVar);
-                TextBox[] TextBoxMass = new TextBox[i];
+                TextBoxMass = new TextBox[i] ;
                 ResultCountColumns = i;
+
+                Binding binding = new Binding();
+
+
+
                 for (int j = 0; j < i; j++)
                 {
                     TextBoxMass[j] = new TextBox
@@ -96,7 +106,7 @@ namespace LogRy
                 result = ";";
             }
             DataResult.ResultSplitSetting = Convert.ToString(result);
-
+/*
              if(result1 == 1)
              {
                         
@@ -105,7 +115,7 @@ namespace LogRy
            
              }
             
-            /* if(result1 == 2)
+             if(result1 == 2)
             {
             }
             */
@@ -115,11 +125,12 @@ namespace LogRy
             */
 
 
-            if (ResultCountColumns == 0)
+          /*  if (ResultCountColumns == 0)
                 DataResult.ResultCountColumns = 4;
             else
             DataResult.ResultCountColumns = ResultCountColumns;
             ComboBoxColumsChecked(sender, e);
+            */
             this.Close();
         }
     }
