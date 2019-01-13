@@ -50,10 +50,10 @@
                 <TabItem x:Name="Colored" Width="0" Height="0" Background="#FFE4E4E4" IsSelected="{Binding ElementName=Coloration, Path=IsSelected}" FontSize="14">
                     <Grid Background="LightYellow" >
                         <TextBlock FontSize="20" TextDecorations="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="194,-2,222,0" Background="LightYellow" RenderTransformOrigin="0.5,0.5" Text="Color menu"/>
-                        <StackPanel Margin="30,85,0,0" Height="116" VerticalAlignment="Top" HorizontalAlignment="Left" Width="456" Background="LightYellow">
-                            <RadioButton Content="Error's" Name="RedC" />
-                            <RadioButton Content="INFO's" Name="YellowC" />
-                            <RadioButton Content="Work's" Name="BlueC" />
+                        <StackPanel Margin="0,30,0,0" Height="116" VerticalAlignment="Top" HorizontalAlignment="Left" Width="456" Background="LightYellow">
+                            <RadioButton Content="Error's" x:Name="RedC" />
+                            <RadioButton Content="INFO's" x:Name="YellowC" />
+                            <RadioButton Content="Work's" x:Name="BlueC" />
                         </StackPanel>
                     </Grid>
                 </TabItem>
