@@ -288,18 +288,7 @@ namespace LogRy
             }
         }
 
-        private void TxtBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            CollectionViewSource Icollect = this.Resources["Icollect"] as CollectionViewSource;
-            Icollect.View.Filter = (obj) =>
-            {
-                System.Xml.XmlElement element = obj as System.Xml.XmlElement;
-                if (element.Attributes["Name"].Value.ToLower().StartsWith(txtBox.Text.Trim().ToLower()))
-                    return true;
-
-                return false;
-            };
-        }
+       
     }
 
     class DataTable

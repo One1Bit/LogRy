@@ -33,10 +33,8 @@
 
 
         </Menu>
-        <StackPanel DataContext="{Binding ElementName=UI}" Grid.Column="1" HorizontalAlignment="Right" Height="100" Margin="0,144,6.667,0" VerticalAlignment="Top" Width="100">
-            <TextBox x:Name="txtBox" DataContext="{Binding}" Height="23" TextWrapping="Wrap" TextChanged="TxtBox_TextChanged"/>
-        </StackPanel>
-        <DataGrid Name="DataGrid" ItemsSource="{Binding DataGridCollection}" Margin="0,25,111.667,19.667" IsReadOnly="True" LoadingRow="DataGrid_LoadingRow" Grid.ColumnSpan="2"/>
+       
+        <DataGrid Name="DataGrid"  Margin="0,25,111.667,19.667" IsReadOnly="True" LoadingRow="DataGrid_LoadingRow" Grid.ColumnSpan="2"/>
         <StackPanel Grid.Column="1" Height="114" Margin="0,25,-0.333,0" VerticalAlignment="Top" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="112">
             <CheckBox Content="DateTime" Name="CheckBox1" Checked="CheckBox1_Checked" Unchecked="CheckBox1_Unchecked"/>
             <CheckBox Content="Level" Name="CheckBox2" Checked="CheckBox2_Checked" Unchecked="CheckBox2_Unchecked"/>
