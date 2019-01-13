@@ -97,10 +97,14 @@ namespace LogRy
             }
             DataResult.ResultSplitSetting = Convert.ToString(result);
 
-            /* if(result1 == 1)
+             if(result1 == 1)
              {
+                        
+ 
+                                dataGridView.Rows[i].Cells[1].Style.BackColor = Color.Yellow; 
+           
              }
-             */
+            
             /* if(result1 == 2)
             {
             }

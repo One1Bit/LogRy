@@ -32,7 +32,7 @@
                             <TextBox Height="25" Name="TB6" Visibility="Hidden"></TextBox>
                             <TextBox Height="25" Name="TB7" Visibility="Hidden"></TextBox>
                         </StackPanel>
-                     
+
                     </Grid>
                 </TabItem>
                 <TabItem x:Name="SplitCol" Width="0" Height="0" Background="LightYellow" IsSelected="{Binding ElementName=Split, Path=IsSelected}" FontSize="16">
@@ -59,9 +59,6 @@
                 </TabItem>
             </TabControl.Items>
         </TabControl>
-
-
-
         <Button x:Name="cl" Click="ClClick"  Content="Exit" Grid.Column="1" Height="24" Margin="0,0,14,371" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="80" Grid.ColumnSpan="2" Background="LightYellow"/>
         <Button x:Name="ok" Click="OkClick" Content="Ок" Grid.Column="1" Height="24" Margin="0,0,14,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="80" Grid.ColumnSpan="2" Background="LightYellow"/>
     </Grid>
