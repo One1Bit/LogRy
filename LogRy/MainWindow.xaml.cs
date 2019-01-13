@@ -6,6 +6,7 @@ using System.IO;
 using System;
 using Xunit;
 using System.Windows.Data;
+using System.Windows.Input;
 
 namespace YourProject.Tests
 {
@@ -35,19 +36,26 @@ namespace YourProject.Tests
 }
 namespace LogRy
 {
-   
+
     public partial class MainWindow : Window
     {
-       
-        public MainWindow()
+       /* public void SearchButtonClkick(object sender, RoutedEventArgs e)
+            {
+            int rows = DataGridView.Rows.Count;
+            for (int i=0; i< rows; i++)
+            {
+
+            }
+
+        }*/
+        public MainWindow(){ InitializeComponent(); }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            InitializeComponent();
-            
+            this.DragMove();
         }
-       
 
-
-    private void OpenNewLogClick(object sender, RoutedEventArgs e)
+        private void OpenNewLogClick(object sender, RoutedEventArgs e)
         {
             string Split = DataResult.ResultSplitSetting;
             if (Split == null)
@@ -94,7 +102,19 @@ namespace LogRy
         }
 
         private void ExitClick(object sender, RoutedEventArgs e) => this.Close();
-        
+
+        private void MinimizeClick(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void MaximizeClick(object sender, RoutedEventArgs e)
+        {
+            if (WindowState == WindowState.Maximized)
+                this.WindowState = WindowState.Normal;
+            else
+                this.WindowState = WindowState.Maximized;
+        }
 
         private void OpenBuildInLogClick(object sender, RoutedEventArgs e)
         {
@@ -133,7 +153,6 @@ namespace LogRy
             DataGrid.ItemsSource = null;
             this.Title = "LogRy";
         }
-
 
         private void SettingClick(object sender, RoutedEventArgs e)
         {
@@ -288,9 +307,21 @@ namespace LogRy
             }
         }
 
-       
-    }
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
+        }
+
+        private void DataGrid_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+    }
     class DataTable
     {
         public DataTable(string col1, string col2, string col3, string col4)
@@ -351,8 +382,6 @@ namespace LogRy
         public string Comment { get; set; }
         public string Name { get; set; }
         public string Data { get; set; }
-
-
     }
     class DataResult
     {
@@ -360,6 +389,9 @@ namespace LogRy
         public static int ResultCountColumns { get; set; }
         public static string[] ResultColumns { get; set; }
         public static string[] ResultColumnsTypeData { get; set; }
-
+    }
+    class Constats
+    {
+        public static string ColorationF { get; set; }
     }
 }

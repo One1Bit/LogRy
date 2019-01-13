@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:LogRy"
         xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="Setting" Height="400" Width="700" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="LightYellow" WindowStyle="None" AllowsTransparency="True" Opacity="0.8">
+        Title="Setting" Height="400" Width="700 "  MouseLeftButtonDown="Window_MouseLeftButtonDown" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="LightYellow" WindowStyle="None" AllowsTransparency="True" Opacity="0.8">
     <Grid Background="Transparent">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="157*"/>
