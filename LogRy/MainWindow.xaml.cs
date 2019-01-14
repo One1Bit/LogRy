@@ -47,7 +47,7 @@ namespace LogRy
        
 
 
-    private void OpenNewLogClick(object sender, RoutedEventArgs e)
+    public void OpenNewLogClick(object sender, RoutedEventArgs e)
         {
             string Split = DataResult.ResultSplitSetting;
             if (Split == null)
@@ -81,7 +81,8 @@ namespace LogRy
                 DataGrid.ItemsSource = list;
                 DataGrid.HorizontalAlignment = HorizontalAlignment.Stretch;
                 DataGrid.VerticalAlignment = VerticalAlignment.Stretch;
-
+                int count_row = DataGrid.Items.Count;
+                
                 for (int o = i; o < 7; o++)
                     DataGrid.Columns[o].Visibility = Visibility.Collapsed;
                 if (DataResult.ResultColumns != null)

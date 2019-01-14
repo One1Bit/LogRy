@@ -20,7 +20,7 @@ namespace LogRy
 
 
 
-        private string RadioButtonSplitChecked(object sender, RoutedEventArgs e)
+        public string RadioButtonSplitChecked(object sender, RoutedEventArgs e)
         {
             
             if (tab.IsChecked == true)

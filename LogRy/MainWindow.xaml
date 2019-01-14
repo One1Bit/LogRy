@@ -33,7 +33,7 @@
 
 
         </Menu>
-       
+
         <DataGrid Name="DataGrid"  Margin="0,25,111.667,19.667" IsReadOnly="True" LoadingRow="DataGrid_LoadingRow" Grid.ColumnSpan="2"/>
         <StackPanel Grid.Column="1" Height="114" Margin="0,25,-0.333,0" VerticalAlignment="Top" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="112">
             <CheckBox Content="DateTime" Name="CheckBox1" Checked="CheckBox1_Checked" Unchecked="CheckBox1_Unchecked"/>
@@ -44,7 +44,8 @@
             <CheckBox Content="Name" Name="CheckBox6" Checked="CheckBox6_Checked" Unchecked="CheckBox6_Unchecked"/>
             <CheckBox Content="Data" Name="CheckBox7" Checked="CheckBox7_Checked" Unchecked="CheckBox7_Unchecked"/>
         </StackPanel>
-        
+        <TextBlock Name="CountRow" HorizontalAlignment="Left" Margin="10,401,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
 
 
 
