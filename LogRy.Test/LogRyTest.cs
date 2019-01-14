@@ -15,15 +15,14 @@ namespace LogRy.Test
             //arrange
             //act
             LogRy.MainWindow c = new MainWindow();
-            //c.OpenNewLogClick(null, new System.Windows.RoutedEventArgs());
+            c.OpenNewLogClick(null, new System.Windows.RoutedEventArgs());
 
-            //assert
+           // assert
             
         }
         [TestMethod]
         public void RadioButtonSplitCheckedTest()
         {
-            
             Setting c = new Setting();
             string Resl = c.RadioButtonSplitChecked(null, new System.Windows.RoutedEventArgs());
             Assert.AreNotEqual(null, Resl);
