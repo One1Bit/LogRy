@@ -35,8 +35,10 @@
             </MenuItem>
 
         </Menu>
+
         <DataGrid Name="DataGrid"  Margin="10,25,112,40" IsReadOnly="True" LoadingRow="DataGrid_LoadingRow" Grid.ColumnSpan="3" SelectionChanged="DataGrid_SelectionChanged_1"/>
         <StackPanel Grid.Column="2" Height="114" Margin="0,30,-15,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="112" Grid.ColumnSpan="2">
+
             <CheckBox Content="DateTime" Name="CheckBox1" Checked="CheckBox1_Checked" Unchecked="CheckBox1_Unchecked"/>
             <CheckBox Content="Level" Name="CheckBox2" Checked="CheckBox2_Checked" Unchecked="CheckBox2_Unchecked"/>
             <CheckBox Content="Content" Name="CheckBox3" Checked="CheckBox3_Checked" Unchecked="CheckBox3_Unchecked"/>
@@ -53,6 +55,7 @@
         <Menu Height="40" VerticalAlignment="Top" HorizontalAlignment="Right" Background="LightYellow" Margin="0,402,10,0" Width="481" Grid.ColumnSpan="2">
                 
         </Menu>
+
 
 
 

@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogRy", "LogRy\LogRy.csproj", "{EEFEF17A-66D3-4CDE-A024-31CE49DF0876}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogRy.Test", "LogRy.Test\LogRy.Test.csproj", "{79FC1F77-9E0A-4632-81D0-52A19620F2BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{EEFEF17A-66D3-4CDE-A024-31CE49DF0876}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEFEF17A-66D3-4CDE-A024-31CE49DF0876}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEFEF17A-66D3-4CDE-A024-31CE49DF0876}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79FC1F77-9E0A-4632-81D0-52A19620F2BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79FC1F77-9E0A-4632-81D0-52A19620F2BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79FC1F77-9E0A-4632-81D0-52A19620F2BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79FC1F77-9E0A-4632-81D0-52A19620F2BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
