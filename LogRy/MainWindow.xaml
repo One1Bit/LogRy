@@ -7,6 +7,7 @@
         xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
         mc:Ignorable="d" 
         Title="LogRy" Height="450" Width="895.531" MinHeight="450" MinWidth="895.531" WindowStyle="None" WindowStartupLocation="CenterScreen" Name="UI">
+
     <Grid RenderTransformOrigin="0.53,0.545" MouseLeftButtonDown="Window_MouseLeftButtonDown" Background="#FFF0F0F0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="388*"/>
@@ -18,7 +19,9 @@
             <MenuItem Header="File" Click="MenuItem_Click">
                 <MenuItem Header="Open new log file" Click="OpenNewLogClick" ></MenuItem>
                 <Separator />
-                <MenuItem Header="Open test file" Click="OpenBuildInLogClick" ></MenuItem>
+                <MenuItem Name="MI" Header="Open last file ->" MouseMove="MenuItem_Click_1" MouseLeave="MI_MouseLeave" Click="MI_Click">
+                </MenuItem>
+                
                 <Separator />
                 <MenuItem Header="Exit" Click="ExitClick"></MenuItem>
                 <Separator />
@@ -32,11 +35,12 @@
             <MenuItem Header="Settings" Click="SettingClick"></MenuItem>
             <MenuItem Header="Info"  >
                 <TextBox>Создано обществом странных существ (студенотов)</TextBox>
+                <TextBlock Name="OpenSum"></TextBlock>
             </MenuItem>
 
         </Menu>
 
-        <DataGrid Name="DataGrid"  Margin="10,25,112,40" IsReadOnly="True" LoadingRow="DataGrid_LoadingRow" Grid.ColumnSpan="3" SelectionChanged="DataGrid_SelectionChanged_1"/>
+        <DataGrid Name="DataGrid"  Margin="10,25,112,40" IsReadOnly="True" LoadingRow="DataGrid_LoadingRow"  Grid.ColumnSpan="3" SelectionChanged="DataGrid_SelectionChanged_1" MouseRightButtonUp="DataGrid_MouseLeftButtonUp"/>
         <StackPanel Grid.Column="2" Height="114" Margin="0,30,-15,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="112" Grid.ColumnSpan="2">
 
             <CheckBox Content="DateTime" Name="CheckBox1" Checked="CheckBox1_Checked" Unchecked="CheckBox1_Unchecked"/>
