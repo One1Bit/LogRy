@@ -99,6 +99,8 @@ namespace LogRy
                     for (int u = 0; u < i; u++)
                         DataGrid.Columns[u].Header = DataResult.ResultColumns[u];
                 }
+                PathToFile.Text = $"Path: {fileDialog.FileName}";
+                NumOfLines.Text = $"Number of Lines: {DataGrid.Items.Count}";
             }
 
         }

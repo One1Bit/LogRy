@@ -6,15 +6,15 @@
         xmlns:local="clr-namespace:LogRy"
         xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
         mc:Ignorable="d" 
-        Title="LogRy" Height="450" Width="895.531" WindowStyle="None" WindowStartupLocation="CenterScreen" Name="UI">
-    <Grid RenderTransformOrigin="0.53,0.545" MouseLeftButtonDown="Window_MouseLeftButtonDown" Background="LightYellow">
+        Title="LogRy" Height="450" Width="895.531" MinHeight="450" MinWidth="895.531" WindowStyle="None" WindowStartupLocation="CenterScreen" Name="UI">
+    <Grid RenderTransformOrigin="0.53,0.545" MouseLeftButtonDown="Window_MouseLeftButtonDown" Background="#FFF0F0F0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="388*"/>
             <ColumnDefinition Width="129*"/>
             <ColumnDefinition Width="372*"/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Menu MouseLeftButtonDown="Window_MouseLeftButtonDown" Height="25" VerticalAlignment="Top" Background="LightYellow" Margin="0,0,174,0">
+        <Menu MouseLeftButtonDown="Window_MouseLeftButtonDown" Height="25" VerticalAlignment="Top" Background="#FFF0F0F0" Margin="0,0,174,0">
             <MenuItem Header="File" Click="MenuItem_Click">
                 <MenuItem Header="Open new log file" Click="OpenNewLogClick" ></MenuItem>
                 <Separator />
@@ -47,14 +47,17 @@
             <CheckBox Content="Name" Name="CheckBox6" Checked="CheckBox6_Checked" Unchecked="CheckBox6_Unchecked"/>
             <CheckBox Content="Data" Name="CheckBox7" Checked="CheckBox7_Checked" Unchecked="CheckBox7_Unchecked"/>
         </StackPanel>
-        <Menu Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Background="LightYellow" Grid.Column="2" Margin="303,0,0,0">
+        <Menu Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Background="#FFF0F0F0" Grid.Column="2" Margin="303,0,0,0">
             <MenuItem Header="_" Click="MinimizeClick"/>
             <MenuItem Header="O" Click="MaximizeClick"/>
             <MenuItem Header="X" VerticalAlignment="Stretch" Click="ExitClick" />
         </Menu>
-        <Menu Height="40" VerticalAlignment="Top" HorizontalAlignment="Right" Background="LightYellow" Margin="0,402,10,0" Width="481" Grid.ColumnSpan="2">
-                
-        </Menu>
+        <StackPanel HorizontalAlignment="Left" Height="40" Margin="10,0,0,0.333" VerticalAlignment="Bottom" Width="378">
+            <TextBlock x:Name="PathToFile" TextWrapping="Wrap"  />
+            <TextBlock x:Name="NumOfLines" TextWrapping="Wrap"  />
+
+        </StackPanel>
+
 
 
 
