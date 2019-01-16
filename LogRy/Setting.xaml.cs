@@ -56,35 +56,54 @@ namespace LogRy
         }
         int ResultCountColumns;
         TextBox[] TextBoxMass;
-        
+
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int i = 0;
-            if (StackPanelColName != null)
-                StackPanelColName.Children.Clear();
-            string localVar="4";
+        
+            string localVar = "4";
             ComboBox comboBox = (ComboBox)sender;
-            ComboBoxItem selectedItem = (ComboBoxItem)ComboBox.SelectedItem;
+            ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
             if (selectedItem.Content != null)
             {
                 localVar = selectedItem.Content.ToString();
                 i = Convert.ToInt32(localVar);
-                TextBoxMass = new TextBox[i] ;
+                TextBoxMass = new TextBox[i];
                 ResultCountColumns = i;
-
-                Binding binding = new Binding();
-
-
-
-                for (int j = 0; j < i; j++)
+                if (i==3)
                 {
-                    TextBoxMass[j] = new TextBox
-                    {
-                        Name = "fr",
-                        Text = "",
-                        Height = 25
-                    };
-                    StackPanelColName.Children.Add(TextBoxMass[j]);
+                    TB4.Visibility = Visibility.Collapsed;
+                    TB5.Visibility = Visibility.Collapsed;                    
+                    TB6.Visibility = Visibility.Collapsed;
+                    TB7.Visibility = Visibility.Collapsed;
+                }
+                if (i==4)
+                {
+                    TB4.Visibility = Visibility.Visible;
+                    TB5.Visibility = Visibility.Collapsed;
+                    TB6.Visibility = Visibility.Collapsed;
+                    TB7.Visibility = Visibility.Collapsed;
+                }
+                if (i==5)
+                {
+                    TB4.Visibility = Visibility.Visible;
+                    TB5.Visibility = Visibility.Visible;
+                    TB6.Visibility = Visibility.Collapsed;
+                    TB7.Visibility = Visibility.Collapsed;
+                }
+                if (i==6)
+                {
+                    TB4.Visibility = Visibility.Visible;
+                    TB5.Visibility = Visibility.Visible;
+                    TB6.Visibility = Visibility.Visible;
+                    TB7.Visibility = Visibility.Collapsed;
+                }
+                if (i==7)
+                {
+                    TB4.Visibility = Visibility.Visible;
+                    TB5.Visibility = Visibility.Visible;
+                    TB6.Visibility = Visibility.Visible;
+                    TB7.Visibility = Visibility.Visible;
                 }
             }
         }
@@ -109,7 +128,10 @@ namespace LogRy
                 result = ";";
             }
             DataResult.ResultSplitSetting = Convert.ToString(result);
+            DataResult.ResultCountColumns = ResultCountColumns;
+            ComboBoxColumsChecked(sender, e);
             this.Close();
         }
+
     }
 }

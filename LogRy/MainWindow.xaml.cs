@@ -446,62 +446,62 @@ namespace LogRy
         }
     }
 }
-
-public partial class DataTabRes
-{
-    public DataTabRes(string[] par, int i)
-    {
-        for (int j = 0; j < i; j++)
+       
+        public partial class DataTabRes
         {
-
-            switch (j)
+            public DataTabRes(string[] par, int i)
             {
-                case 0:
-                    this.DateTime = par[j];
-                    break;
-                case 1:
-                    this.Level = par[j];
-                    break;
-                case 2:
-                    this.Content = par[j];
-                    break;
-                case 3:
-                    this.Message = par[j];
-                    break;
-                case 4:
-                    this.Comment = par[j];
-                    break;
-                case 5:
-                    this.Name = par[j];
-                    break;
-                case 6:
-                    this.Data = par[j];
-                    break;
-                default:
-                    break;
+                for (int j = 0; j < i; j++)
+                {
+
+                    switch (j)
+                    {
+                        case 0:
+                            this.DateTime = par[j];
+                            break;
+                        case 1:
+                            this.Level = par[j];
+                            break;
+                        case 2:
+                            this.Content = par[j];
+                            break;
+                        case 3:
+                            this.Message = par[j];
+                            break;
+                        case 4:
+                            this.Comment = par[j];
+                            break;
+                        case 5:
+                            this.Name = par[j];
+                            break;
+                        case 6:
+                            this.Data = par[j];
+                            break;
+                        default:
+                            break;
+                    }
+
+
+                }
+
             }
-
-
+            public string DateTime { get; set; }
+            public string Level { get; set; }
+            public string Content { get; set; }
+            public string Message { get; set; }
+            public string Comment { get; set; }
+            public string Name { get; set; }
+            public string Data { get; set; }
         }
-
-    }
-    public string DateTime { get; set; }
-    public string Level { get; set; }
-    public string Content { get; set; }
-    public string Message { get; set; }
-    public string Comment { get; set; }
-    public string Name { get; set; }
-    public string Data { get; set; }
-}
-class DataResult
-{
-    public static string ResultSplitSetting { get; set; }
-    public static int ResultCountColumns { get; set; }
-    public static string[] ResultColumns { get; set; }
-    public static string[] ResultColumnsTypeData { get; set; }
-}
-class Constats
-{
-    public static string ColorationF { get; set; }
-}
-
+        class DataResult
+        {
+            public static string ResultSplitSetting { get; set; }
+            public static int ResultCountColumns { get; set; }
+            public static string[] ResultColumns { get; set; }
+            public static string[] ResultColumnsTypeData { get; set; }
+        }
+        class Constats
+        {
+            public static string ColorationF { get; set; }
+        }
+    
