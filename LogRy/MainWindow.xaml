@@ -34,7 +34,7 @@
             <MenuItem Header="Search" ></MenuItem>
             <MenuItem Header="Settings" Click="SettingClick"></MenuItem>
             <MenuItem Header="Info"  >
-                <TextBox>Создано обществом странных существ (студенотов)</TextBox>
+                <TextBlock>Создано обществом странных существ (студенотов)</TextBlock>
                 <TextBlock Name="OpenSum"></TextBlock>
             </MenuItem>
 

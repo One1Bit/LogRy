@@ -85,11 +85,74 @@ namespace LogRy
                 NumOfLines.Text = $"Number of Lines: {DataGrid.Items.Count}";
                 Properties.Settings.Default.Path = fileDialog.FileName;
                 Properties.Settings.Default.Save();
-
+                SaveAndVisibibliryCol(i);
             }
 
         }
+        public void SaveAndVisibibliryCol(int i)
+        {
 
+            if (DataResult.ResultColumns != null)
+            {
+
+                Properties.Settings.Default.CheckBox1 = DataResult.ResultColumns[0];
+                Properties.Settings.Default.CheckBox2 = DataResult.ResultColumns[1];
+                Properties.Settings.Default.CheckBox3 = DataResult.ResultColumns[2];
+                Properties.Settings.Default.CheckBox4 = DataResult.ResultColumns[3];
+                Properties.Settings.Default.CheckBox5 = DataResult.ResultColumns[4];
+                Properties.Settings.Default.CheckBox6 = DataResult.ResultColumns[5];
+                Properties.Settings.Default.CheckBox7 = DataResult.ResultColumns[6];
+                Properties.Settings.Default.Save();
+                CheckBox1.Content = Properties.Settings.Default.CheckBox1;
+                CheckBox2.Content = Properties.Settings.Default.CheckBox2;
+                CheckBox3.Content = Properties.Settings.Default.CheckBox3;
+                CheckBox4.Content = Properties.Settings.Default.CheckBox4;
+                CheckBox5.Content = Properties.Settings.Default.CheckBox5;
+                CheckBox6.Content = Properties.Settings.Default.CheckBox6;
+                CheckBox7.Content = Properties.Settings.Default.CheckBox7;
+
+            }
+            else
+            {
+
+                CheckBox1.Content = Properties.Settings.Default.CheckBox1;
+                CheckBox2.Content = Properties.Settings.Default.CheckBox2;
+                CheckBox3.Content = Properties.Settings.Default.CheckBox3;
+                CheckBox4.Content = Properties.Settings.Default.CheckBox4;
+                CheckBox5.Content = Properties.Settings.Default.CheckBox5;
+                CheckBox6.Content = Properties.Settings.Default.CheckBox6;
+                CheckBox7.Content = Properties.Settings.Default.CheckBox7;
+            }
+            if (i == 3)
+            {
+                CheckBox4.Visibility = Visibility.Collapsed;
+                CheckBox5.Visibility = Visibility.Collapsed;
+                CheckBox6.Visibility = Visibility.Collapsed;
+                CheckBox7.Visibility = Visibility.Collapsed;
+
+            }
+            if (i == 4)
+            {
+                CheckBox4.Visibility = Visibility.Visible;
+                CheckBox5.Visibility = Visibility.Collapsed;
+                CheckBox6.Visibility = Visibility.Collapsed;
+                CheckBox7.Visibility = Visibility.Collapsed;
+            }
+            if (i == 5)
+            {
+                CheckBox4.Visibility = Visibility.Visible;
+                CheckBox5.Visibility = Visibility.Visible;
+                CheckBox6.Visibility = Visibility.Collapsed;
+                CheckBox7.Visibility = Visibility.Collapsed;
+            }
+            if (i == 6)
+            {
+                CheckBox4.Visibility = Visibility.Visible;
+                CheckBox5.Visibility = Visibility.Visible;
+                CheckBox6.Visibility = Visibility.Visible;
+                CheckBox7.Visibility = Visibility.Collapsed;
+            }
+        }
         private void ExitClick(object sender, RoutedEventArgs e) => this.Close();
 
         private void MinimizeClick(object sender, RoutedEventArgs e)
@@ -311,6 +374,8 @@ namespace LogRy
                 if (path != null && column == 2)
                 {
                     string s = path.Content;
+                    Random rand = new Random();
+                    Brush brush = new SolidColorBrush(Color.FromRgb((byte)rand.Next(0, 256), (byte)rand.Next(0, 256), (byte)rand.Next(0, 256)));
                     for (int i = 0; i < DataGrid.Items.Count; i++)
                     {
                         int columnIndex = DataGrid.CurrentColumn.DisplayIndex;
@@ -327,8 +392,7 @@ namespace LogRy
                             if (item == null) return;
 
                             var value = item.Content;
-                            Random rand = new Random();
-                            Brush brush = new SolidColorBrush(Color.FromRgb((byte)rand.Next(0, 256), (byte)rand.Next(0, 256), (byte)rand.Next(0, 256)));
+                            
                             cell.Background = brush;
 
                         }
@@ -441,8 +505,7 @@ namespace LogRy
             NumOfLines.Text = $"Number of Lines: {DataGrid.Items.Count}";
             Properties.Settings.Default.Path = file;
             Properties.Settings.Default.Save();
-
-
+            SaveAndVisibibliryCol(i);
         }
     }
 }
