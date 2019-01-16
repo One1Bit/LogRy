@@ -22,29 +22,5 @@ namespace LogRy.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int open_sum {
-            get {
-                return ((int)(this["open_sum"]));
-            }
-            set {
-                this["open_sum"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Path {
-            get {
-                return ((string)(this["Path"]));
-            }
-            set {
-                this["Path"] = value;
-            }
-        }
     }
 }

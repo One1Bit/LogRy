@@ -6,38 +6,46 @@
         xmlns:local="clr-namespace:LogRy"
         xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="Setting" Height="400" Width="700 "  MouseLeftButtonDown="Window_MouseLeftButtonDown" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="#FFF0F0F0" WindowStyle="None" AllowsTransparency="True" Opacity="1">
-    <Grid Background="Transparent">
+        Title="Setting" Height="400" Width="700" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Background="#FFE4E4E4">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="157*"/>
-            <ColumnDefinition Width="513*"/>
-            <ColumnDefinition Width="24*"/>
+            <ColumnDefinition Width="124*"/>
+            <ColumnDefinition Width="211*"/>
+            <ColumnDefinition Width="12*"/>
         </Grid.ColumnDefinitions>
-        <TreeView x:Name="tv" Margin="8,8,8,10" Background="#FFF0F0F0" >
+        <TreeView x:Name="tv" Margin="8,8,8,22">
             <TreeViewItem x:Name="Columns" Header="Columns" />
             <TreeViewItem x:Name="Split" Header="Split" />
-            <TreeViewItem x:Name="Coloration" Header="Coloration"  />
         </TreeView>
-        <TabControl x:Name="tc" Grid.Column="1" Margin="8,34,8,54" Background="#FFF0F0F0" BorderBrush="#FFF0F0F0" Grid.ColumnSpan="2">
+        <TabControl x:Name="tc" Grid.Column="1" Margin="8,8,8,56" Background="#FFE4E4E4" BorderBrush="#FFE4E4E4" Grid.ColumnSpan="2">
             <TabControl.Items>
-                <TabItem x:Name="Col" Width="0" Height="0" Background="#FFF0F0F0" IsSelected="{Binding ElementName=Columns, Path=IsSelected}">
-                    <Grid Background="#FFF0F0F0" >
-                        <TextBlock FontSize="20" TextDecorations="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0" RenderTransformOrigin="0.5,0.5"> Name of the columns</TextBlock>
+                <TabItem x:Name="Col" Width="0" Height="0" Background="#FFE4E4E4" IsSelected="{Binding ElementName=Columns, Path=IsSelected}">
+                    <Grid Background="#FFE4E4E4" >
+                        <TextBlock FontSize="16" TextDecorations="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0" RenderTransformOrigin="0.5,0.5"> Setting the number and name of the columns</TextBlock>
+                        <ComboBox HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Width="42" SelectionChanged="ComboBoxSelectionChanged" Name="ComboBox">
+                            <ComboBoxItem>3</ComboBoxItem>
+                            <ComboBoxItem IsSelected="True">4</ComboBoxItem>
+                            <ComboBoxItem>5</ComboBoxItem>
+                            <ComboBoxItem>6</ComboBoxItem>
+                            <ComboBoxItem>7</ComboBoxItem>
+                        </ComboBox>
                         <StackPanel Name="StackPanelColName" HorizontalAlignment="Left" Height="211" Margin="10,77,0,0" VerticalAlignment="Top" Width="144">
                             <TextBox Height="25" Name="TB1">Date Time</TextBox>
-                            <TextBox Height="25" Name="TB2">Level</TextBox>
+                            <TextBox Height="25" Name="TB2">Level2</TextBox>
                             <TextBox Height="25" Name="TB3">Content</TextBox>
                             <TextBox Height="25" Name="TB4">Message</TextBox>
                             <TextBox Height="25" Name="TB5" Visibility="Hidden"></TextBox>
                             <TextBox Height="25" Name="TB6" Visibility="Hidden"></TextBox>
                             <TextBox Height="25" Name="TB7" Visibility="Hidden"></TextBox>
                         </StackPanel>
+                        
 
+                        <TextBlock HorizontalAlignment="Left" Margin="57,42,0,0" TextWrapping="Wrap" Text="Number of columns" VerticalAlignment="Top" Height="22" Width="140" FontSize="14"/>
                     </Grid>
                 </TabItem>
-                <TabItem x:Name="SplitCol" Width="0" Height="0" Background="#FFF0F0F0" IsSelected="{Binding ElementName=Split, Path=IsSelected}" FontSize="16">
-                    <Grid Background="#FFF0F0F0" >
-                        <TextBlock FontSize="20" TextDecorations="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0" RenderTransformOrigin="0.5,0.5"> Configuring the column delimiter</TextBlock>
+                <TabItem x:Name="SplitCol" Width="0" Height="0" Background="#FFE4E4E4" IsSelected="{Binding ElementName=Split, Path=IsSelected}" FontSize="14">
+                    <Grid Background="#FFE4E4E4" >
+                        <TextBlock FontSize="16" TextDecorations="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0" RenderTransformOrigin="0.5,0.5"> Configuring the column delimiter</TextBlock>
                         <StackPanel Margin="0,30,0,0" Height="116" VerticalAlignment="Top" HorizontalAlignment="Left" Width="414">
                             <RadioButton Content="Tab" Name="tab" />
                             <RadioButton Content=";" Name="semicolon" IsChecked="True"/>
@@ -47,19 +55,10 @@
                         </StackPanel>
                     </Grid>
                 </TabItem>
-                <TabItem x:Name="Colored" Width="0" Height="0" Background="#FFF0F0F0" IsSelected="{Binding ElementName=Coloration, Path=IsSelected}" FontSize="14">
-                    <Grid Background="#FFF0F0F0" >
-                        <TextBlock FontSize="20" TextDecorations="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="194,-2,222,0" Background="#FFF0F0F0" RenderTransformOrigin="0.5,0.5" Text="Color menu"/>
-                        <StackPanel Margin="0,30,0,0" Height="116" VerticalAlignment="Top" HorizontalAlignment="Left" Width="456" Background="#FFF0F0F0">
-                            <RadioButton Content="Error's" x:Name="RedC" />
-                            <RadioButton Content="INFO's" x:Name="YellowC" />
-                            <RadioButton Content="Work's" x:Name="BlueC" />
-                        </StackPanel>
-                    </Grid>
-                </TabItem>
             </TabControl.Items>
         </TabControl>
-        <Button x:Name="cl" Click="ClClick"  Content="Exit" Grid.Column="1" Height="24" Margin="0,0,14,371" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="80" Grid.ColumnSpan="2" Background="#FFF0F0F0"/>
-        <Button x:Name="ok" Click="OkClick" Content="Ок" Grid.Column="1" Height="24" Margin="0,0,14,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="80" Grid.ColumnSpan="2" Background="#FFF0F0F0"/>
+
+        <Button x:Name="cl" Click="ClClick"  Content="Cancel" Grid.Column="1" Height="24" Margin="0,0,16,8" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="80" Grid.ColumnSpan="2"/>
+        <Button x:Name="ok" Click="OkClick" Content="Ок" Grid.Column="1" Height="24" Margin="0,0,76.404,8" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="80"/>
     </Grid>
 </Window>
