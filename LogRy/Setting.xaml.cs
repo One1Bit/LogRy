@@ -54,15 +54,16 @@ namespace LogRy
             else
                 return "";
         }
-       /*& int ResultCountColumns;
+        int ResultCountColumns;
         TextBox[] TextBoxMass;
-        */
-       /* private void ComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
+        
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int i = 0;
             if (StackPanelColName != null)
                 StackPanelColName.Children.Clear();
             string localVar="4";
+            ComboBox comboBox = (ComboBox)sender;
             ComboBoxItem selectedItem = (ComboBoxItem)ComboBox.SelectedItem;
             if (selectedItem.Content != null)
             {
@@ -86,7 +87,7 @@ namespace LogRy
                     StackPanelColName.Children.Add(TextBoxMass[j]);
                 }
             }
-        }*/
+        }
         private void ClClick(object sender, RoutedEventArgs e)
         {
             this.Close();
