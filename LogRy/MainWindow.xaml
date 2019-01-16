@@ -16,7 +16,7 @@
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
         <Menu MouseLeftButtonDown="Window_MouseLeftButtonDown" Height="25" VerticalAlignment="Top" Background="#FFF0F0F0" Margin="0,0,174,0">
-            <MenuItem Header="File" Click="MenuItem_Click">
+            <MenuItem Header="File" >
                 <MenuItem Header="Open new log file" Click="OpenNewLogClick" ></MenuItem>
                 <Separator />
                 <MenuItem Name="MI" Header="Open last file ->" MouseMove="MenuItem_Click_1" MouseLeave="MI_MouseLeave" Click="MI_Click">
@@ -40,16 +40,16 @@
 
         </Menu>
 
-        <DataGrid Name="DataGrid"  Margin="10,25,112,40" IsReadOnly="True" LoadingRow="DataGrid_LoadingRow"  Grid.ColumnSpan="3" SelectionChanged="DataGrid_SelectionChanged_1" MouseRightButtonUp="DataGrid_MouseLeftButtonUp"/>
+        <DataGrid Name="DataGrid"  Margin="10,25,112,40" IsReadOnly="True" LoadingRow="DataGrid_LoadingRow"  Grid.ColumnSpan="3" MouseRightButtonUp="DataGrid_MouseLeftButtonUp"/>
         <StackPanel Grid.Column="2" Height="114" Margin="0,30,-15,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="112" Grid.ColumnSpan="2">
 
-            <CheckBox Content="DateTime" Name="CheckBox1" Checked="CheckBox1_Checked" Unchecked="CheckBox1_Unchecked"/>
-            <CheckBox Content="Level" Name="CheckBox2" Checked="CheckBox2_Checked" Unchecked="CheckBox2_Unchecked"/>
-            <CheckBox Content="Content" Name="CheckBox3" Checked="CheckBox3_Checked" Unchecked="CheckBox3_Unchecked"/>
-            <CheckBox Content="Message" Name="CheckBox4" Checked="CheckBox4_Checked" Unchecked="CheckBox4_Unchecked"/>
-            <CheckBox Content="Comment" Name="CheckBox5" Checked="CheckBox5_Checked" Unchecked="CheckBox5_Unchecked"/>
-            <CheckBox Content="Name" Name="CheckBox6" Checked="CheckBox6_Checked" Unchecked="CheckBox6_Unchecked"/>
-            <CheckBox Content="Data" Name="CheckBox7" Checked="CheckBox7_Checked" Unchecked="CheckBox7_Unchecked"/>
+            <CheckBox Tag="1" Content="DateTime" Name="CheckBox1" Checked="CheckBox1_Checked" Unchecked="CheckBox1_Unchecked"/>
+            <CheckBox Tag="2" Content="Level" Name="CheckBox2" Checked="CheckBox2_Checked" Unchecked="CheckBox2_Unchecked"/>
+            <CheckBox Tag="3" Content="Content" Name="CheckBox3" Checked="CheckBox3_Checked" Unchecked="CheckBox3_Unchecked"/>
+            <CheckBox Tag="4" Content="Message" Name="CheckBox4" Checked="CheckBox4_Checked" Unchecked="CheckBox4_Unchecked"/>
+            <CheckBox Tag="5" Content="Comment" Name="CheckBox5" Checked="CheckBox5_Checked" Unchecked="CheckBox5_Unchecked"/>
+            <CheckBox Tag="6" Content="Name" Name="CheckBox6" Checked="CheckBox6_Checked" Unchecked="CheckBox6_Unchecked"/>
+            <CheckBox Tag="7" Content="Data" Name="CheckBox7" Checked="CheckBox7_Checked" Unchecked="CheckBox7_Unchecked"/>
         </StackPanel>
         <Menu Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Background="#FFF0F0F0" Grid.Column="2" Margin="303,0,0,0">
             <MenuItem Header="_" Click="MinimizeClick"/>

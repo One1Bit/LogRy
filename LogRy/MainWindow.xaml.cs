@@ -15,31 +15,35 @@ namespace LogRy
 
     public partial class MainWindow : Window
     {
-       /* public void SearchButtonClkick(object sender, RoutedEventArgs e)
-            {
-            int rows = DataGridView.Rows.Count;
-            for (int i=0; i< rows; i++)
-            {
+        /* public void SearchButtonClkick(object sender, RoutedEventArgs e)
+             {
+             int rows = DataGridView.Rows.Count;
+             for (int i=0; i< rows; i++)
+             {
 
-            }
+             }
 
-        }*/
-        public MainWindow(){ InitializeComponent();
+         }*/
+        public MainWindow()
+        {
+            InitializeComponent();
             Properties.Settings.Default.open_sum++;
             OpenSum.Text = $"Number of application launches: {Properties.Settings.Default.open_sum.ToString()}";
             Properties.Settings.Default.Save();
         }
+
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
         }
 
-    public void OpenNewLogClick(object sender, RoutedEventArgs e)
+
+        public void OpenNewLogClick(object sender, RoutedEventArgs e)
         {
             string Split = DataResult.ResultSplitSetting;
             if (Split == null)
                 Split = ";";
-            int i= DataResult.ResultCountColumns;
+            int i = DataResult.ResultCountColumns;
             if (i == 0)
                 i = 4;
             var fileDialog = new System.Windows.Forms.OpenFileDialog();
@@ -69,7 +73,7 @@ namespace LogRy
                 DataGrid.HorizontalAlignment = HorizontalAlignment.Stretch;
                 DataGrid.VerticalAlignment = VerticalAlignment.Stretch;
                 int count_row = DataGrid.Items.Count;
-                
+
                 for (int o = i; o < 7; o++)
                     DataGrid.Columns[o].Visibility = Visibility.Collapsed;
                 if (DataResult.ResultColumns != null)
@@ -81,7 +85,7 @@ namespace LogRy
                 NumOfLines.Text = $"Number of Lines: {DataGrid.Items.Count}";
                 Properties.Settings.Default.Path = fileDialog.FileName;
                 Properties.Settings.Default.Save();
-                
+
             }
 
         }
@@ -101,6 +105,8 @@ namespace LogRy
                 this.WindowState = WindowState.Maximized;
         }
 
+
+
         private void ClearClick(object sender, RoutedEventArgs e)
         {
             DataGrid.ItemsSource = null;
@@ -119,7 +125,7 @@ namespace LogRy
         }
         void DataGrid_LoadingRow(object sender, DataGridRowEventArgs e)
         {
-            e.Row.Header = (e.Row.GetIndex()+1).ToString();
+            e.Row.Header = (e.Row.GetIndex() + 1).ToString();
 
         }
 
@@ -127,8 +133,9 @@ namespace LogRy
         {
             if (DataGrid.Columns.Count > 0)
             {
+
                 DataGrid.Columns[0].Visibility = Visibility.Collapsed;
-                
+
             }
         }
 
@@ -144,9 +151,9 @@ namespace LogRy
 
         private void CheckBox2_Checked(object sender, RoutedEventArgs e)
         {
-            if(DataGrid.Columns.Count > 0)
+            if (DataGrid.Columns.Count > 0)
             {
-                
+
                 DataGrid.Columns[1].Visibility = Visibility.Collapsed;
 
             }
@@ -261,48 +268,44 @@ namespace LogRy
             }
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
-        }
 
-        private void DataGrid_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
 
         private void DataGrid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             DataTabRes path = (DataTabRes)DataGrid.SelectedItem;
-            if (DataGrid.CurrentColumn!=null)
+            if (DataGrid.CurrentColumn != null)
             {
                 int column = DataGrid.CurrentColumn.DisplayIndex;
+
+
                 if (path != null && column == 1)
                 {
+                    Random rand = new Random();
+                    Brush brush = new SolidColorBrush(Color.FromRgb((byte)rand.Next(0, 256), (byte)rand.Next(0, 256), (byte)rand.Next(0, 256)));
                     string s = path.Level;
+                    int columnIndex = DataGrid.CurrentColumn.DisplayIndex;
                     for (int i = 0; i < DataGrid.Items.Count; i++)
                     {
-                        int columnIndex = DataGrid.CurrentColumn.DisplayIndex;
                         DataGridCell Cell = new DataGridCell();
                         DataTabRes p = DataGrid.Items[i] as DataTabRes;
+
                         if (p.Level == s)
                         {
                             DataGridRow Row = GetRow(DataGrid, i);
+
                             var cell = GetCell(DataGrid, Row, 1);
                             if (cell == null) return;
                             var item = Row.Item as DataTabRes;
                             if (item == null) return;
+
                             var value = item.Level;
-                            Random rand = new Random();
-                            Brush brush = new SolidColorBrush(Color.FromRgb((byte)rand.Next(0, 256), (byte)rand.Next(0, 256), (byte)rand.Next(0, 256)));
+
                             cell.Background = brush;
+
                         }
+
                     }
                 }
                 if (path != null && column == 2)
@@ -313,13 +316,16 @@ namespace LogRy
                         int columnIndex = DataGrid.CurrentColumn.DisplayIndex;
                         DataGridCell Cell = new DataGridCell();
                         DataTabRes p = DataGrid.Items[i] as DataTabRes;
+
                         if (p.Content == s)
                         {
                             DataGridRow Row = GetRow(DataGrid, i);
+
                             var cell = GetCell(DataGrid, Row, 2);
                             if (cell == null) return;
                             var item = Row.Item as DataTabRes;
                             if (item == null) return;
+
                             var value = item.Content;
                             Random rand = new Random();
                             Brush brush = new SolidColorBrush(Color.FromRgb((byte)rand.Next(0, 256), (byte)rand.Next(0, 256), (byte)rand.Next(0, 256)));
@@ -331,17 +337,19 @@ namespace LogRy
                 }
             }
         }
+
         public static DataGridRow GetRow(DataGrid grid, int index)
         {
             var row = grid.ItemContainerGenerator.ContainerFromIndex(index) as DataGridRow;
+
             if (row == null)
             {
-                // may be virtualized, bring into view and try again
                 grid.ScrollIntoView(grid.Items[index]);
                 row = (DataGridRow)grid.ItemContainerGenerator.ContainerFromIndex(index);
             }
             return row;
         }
+
         public static T GetVisualChild<T>(Visual parent) where T : Visual
         {
             T child = default(T);
@@ -357,11 +365,14 @@ namespace LogRy
             }
             return child;
         }
-        public static DataGridCell GetCell(DataGrid host, DataGridRow row, int columnIndex)
+
+        public DataGridCell GetCell(DataGrid host, DataGridRow row, int columnIndex)
         {
             if (row == null) return null;
+
             var presenter = GetVisualChild<DataGridCellsPresenter>(row);
             if (presenter == null) return null;
+
             var cell = (DataGridCell)presenter.ItemContainerGenerator.ContainerFromIndex(columnIndex);
             if (cell == null)
             {
@@ -373,13 +384,15 @@ namespace LogRy
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
-            if (Properties.Settings.Default.Path!=null)
-            MI.Header = Properties.Settings.Default.Path;
+            if (Properties.Settings.Default.Path != null)
+                MI.Header = Properties.Settings.Default.Path;
+
         }
 
         private void MI_MouseLeave(object sender, MouseEventArgs e)
         {
             MI.Header = "Open last file ->";
+
         }
 
         private void MI_Click(object sender, RoutedEventArgs e)
@@ -392,113 +405,103 @@ namespace LogRy
                 i = 4;
             string file = Properties.Settings.Default.Path;
             List<DataTabRes> list = new List<DataTabRes>();
-         
-                try
-                {
-                    using (StreamReader sr = new StreamReader(file, System.Text.Encoding.Default))
-                    {
-                        string line;
-                        while ((line = sr.ReadLine()) != null)
-                        {
-                            string[] parsed = new string[i];
-                            parsed = line.Split(Convert.ToChar(Split)); //Делим строку по символу
-                            list.Add(new DataTabRes(parsed, i));
-                        }
-                    }
-                    this.Title = $"LogRy {file} ";
-                }
-                catch (Exception a)
-                {
-                    MessageBox.Show("The file could not be read!");
-                    MessageBox.Show($"{a}");
-                }
-                DataGrid.ItemsSource = list;
-                DataGrid.HorizontalAlignment = HorizontalAlignment.Stretch;
-                DataGrid.VerticalAlignment = VerticalAlignment.Stretch;
-                int count_row = DataGrid.Items.Count;
 
-                for (int o = i; o < 7; o++)
-                    DataGrid.Columns[o].Visibility = Visibility.Collapsed;
-                if (DataResult.ResultColumns != null)
-                {
-                    for (int u = 0; u < i; u++)
-                        DataGrid.Columns[u].Header = DataResult.ResultColumns[u];
-                }
-                PathToFile.Text = $"Path: {file}";
-                NumOfLines.Text = $"Number of Lines: {DataGrid.Items.Count}";
-                Properties.Settings.Default.Path = file;
-                Properties.Settings.Default.Save();
-
-            
-        }
-    }
-    class DataTable
-    {
-        public DataTable(string col1, string col2, string col3, string col4)
-        {
-            this.DateTime = col1;
-            this.Level = col2;
-            this.Content = col3;
-            this.Message = col4;
-        }
-        public string DateTime { get; set; }
-        public string Level { get; set; }
-        public string Content { get; set; }
-        public string Message { get; set; }
-
-    }
-    class DataTabRes
-    {
-        public DataTabRes(string[] par, int i)
-        {
-            for (int j = 0; j < i; j++)
+            try
             {
-
-                switch (j)
+                using (StreamReader sr = new StreamReader(file, System.Text.Encoding.Default))
                 {
-                    case 0:
-                        this.DateTime = par[j];
-                        break;
-                    case 1:
-                        this.Level = par[j];
-                        break;
-                    case 2:
-                        this.Content = par[j];
-                        break;
-                    case 3:
-                        this.Message = par[j];
-                        break;
-                    case 4:
-                        this.Comment = par[j];
-                        break;
-                    case 5:
-                        this.Name = par[j];
-                        break;
-                    case 6:
-                        this.Data = par[j];
-                        break;
-                    default:
-                        break;
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        string[] parsed = new string[i];
+                        parsed = line.Split(Convert.ToChar(Split)); //Делим строку по символу
+                        list.Add(new DataTabRes(parsed, i));
+                    }
                 }
+                this.Title = $"LogRy {file} ";
             }
+            catch (Exception a)
+            {
+                MessageBox.Show("The file could not be read!");
+                MessageBox.Show($"{a}");
+            }
+            DataGrid.ItemsSource = list;
+            DataGrid.HorizontalAlignment = HorizontalAlignment.Stretch;
+            DataGrid.VerticalAlignment = VerticalAlignment.Stretch;
+            int count_row = DataGrid.Items.Count;
+
+            for (int o = i; o < 7; o++)
+                DataGrid.Columns[o].Visibility = Visibility.Collapsed;
+            if (DataResult.ResultColumns != null)
+            {
+                for (int u = 0; u < i; u++)
+                    DataGrid.Columns[u].Header = DataResult.ResultColumns[u];
+            }
+            PathToFile.Text = $"Path: {file}";
+            NumOfLines.Text = $"Number of Lines: {DataGrid.Items.Count}";
+            Properties.Settings.Default.Path = file;
+            Properties.Settings.Default.Save();
+
+
         }
-        public string DateTime { get; set; }
-        public string Level { get; set; }
-        public string Content { get; set; }
-        public string Message { get; set; }
-        public string Comment { get; set; }
-        public string Name { get; set; }
-        public string Data { get; set; }
-    }
-    class DataResult
-    {
-        public static string ResultSplitSetting { get; set; }
-        public static int ResultCountColumns { get; set; }
-        public static string[] ResultColumns { get; set; }
-        public static string[] ResultColumnsTypeData { get; set; }
-    }
-    class Constats
-    {
-        public static string ColorationF { get; set; }
     }
 }
+
+public partial class DataTabRes
+{
+    public DataTabRes(string[] par, int i)
+    {
+        for (int j = 0; j < i; j++)
+        {
+
+            switch (j)
+            {
+                case 0:
+                    this.DateTime = par[j];
+                    break;
+                case 1:
+                    this.Level = par[j];
+                    break;
+                case 2:
+                    this.Content = par[j];
+                    break;
+                case 3:
+                    this.Message = par[j];
+                    break;
+                case 4:
+                    this.Comment = par[j];
+                    break;
+                case 5:
+                    this.Name = par[j];
+                    break;
+                case 6:
+                    this.Data = par[j];
+                    break;
+                default:
+                    break;
+            }
+
+
+        }
+
+    }
+    public string DateTime { get; set; }
+    public string Level { get; set; }
+    public string Content { get; set; }
+    public string Message { get; set; }
+    public string Comment { get; set; }
+    public string Name { get; set; }
+    public string Data { get; set; }
+}
+class DataResult
+{
+    public static string ResultSplitSetting { get; set; }
+    public static int ResultCountColumns { get; set; }
+    public static string[] ResultColumns { get; set; }
+    public static string[] ResultColumnsTypeData { get; set; }
+}
+class Constats
+{
+    public static string ColorationF { get; set; }
+}
+
