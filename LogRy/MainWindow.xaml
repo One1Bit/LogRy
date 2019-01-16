@@ -5,22 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LogRy"
         xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
-        mc:Ignorable="d"
-        Title="LogRy" Height="450" Width="895.531" WindowStartupLocation="CenterScreen">
-    <Grid RenderTransformOrigin="0.53,0.545">
+        mc:Ignorable="d" 
+        Title="LogRy" Height="450" Width="895.531" MinHeight="450" MinWidth="895.531" WindowStyle="None" WindowStartupLocation="CenterScreen" Name="UI">
+
+    <Grid RenderTransformOrigin="0.53,0.545" MouseLeftButtonDown="Window_MouseLeftButtonDown" Background="#FFF0F0F0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="388*"/>
+            <ColumnDefinition Width="129*"/>
+            <ColumnDefinition Width="372*"/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Menu Height="25" VerticalAlignment="Top">
-            <MenuItem Header="File">
+        <Menu MouseLeftButtonDown="Window_MouseLeftButtonDown" Height="25" VerticalAlignment="Top" Background="#FFF0F0F0" Margin="0,0,174,0">
+            <MenuItem Header="File" Click="MenuItem_Click">
                 <MenuItem Header="Open new log file" Click="OpenNewLogClick" ></MenuItem>
                 <Separator />
-                <MenuItem Header="Open build in log" Click="OpenBuildInLogClick" ></MenuItem>
+                <MenuItem Name="MI" Header="Open last file ->" MouseMove="MenuItem_Click_1" MouseLeave="MI_MouseLeave" Click="MI_Click">
+                </MenuItem>
+                
                 <Separator />
                 <MenuItem Header="Exit" Click="ExitClick"></MenuItem>
                 <Separator />
-                
+
             </MenuItem>
             <MenuItem Header="Edit" >
                 <MenuItem Header="Clear" Click="ClearClick"></MenuItem>
@@ -28,14 +33,37 @@
             </MenuItem>
             <MenuItem Header="Search" ></MenuItem>
             <MenuItem Header="Settings" Click="SettingClick"></MenuItem>
-            <MenuItem Header="Info" ></MenuItem>
-
+            <MenuItem Header="Info"  >
+                <TextBox>Создано обществом странных существ (студенотов)</TextBox>
+                <TextBlock Name="OpenSum"></TextBlock>
+            </MenuItem>
 
         </Menu>
 
-        <DataGrid Name="DataGrid"  Margin="0,25,0,0" IsReadOnly="True">
+        <DataGrid Name="DataGrid"  Margin="10,25,112,40" IsReadOnly="True" LoadingRow="DataGrid_LoadingRow"  Grid.ColumnSpan="3" SelectionChanged="DataGrid_SelectionChanged_1" MouseRightButtonUp="DataGrid_MouseLeftButtonUp"/>
+        <StackPanel Grid.Column="2" Height="114" Margin="0,30,-15,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="112" Grid.ColumnSpan="2">
 
-        </DataGrid>
+            <CheckBox Content="DateTime" Name="CheckBox1" Checked="CheckBox1_Checked" Unchecked="CheckBox1_Unchecked"/>
+            <CheckBox Content="Level" Name="CheckBox2" Checked="CheckBox2_Checked" Unchecked="CheckBox2_Unchecked"/>
+            <CheckBox Content="Content" Name="CheckBox3" Checked="CheckBox3_Checked" Unchecked="CheckBox3_Unchecked"/>
+            <CheckBox Content="Message" Name="CheckBox4" Checked="CheckBox4_Checked" Unchecked="CheckBox4_Unchecked"/>
+            <CheckBox Content="Comment" Name="CheckBox5" Checked="CheckBox5_Checked" Unchecked="CheckBox5_Unchecked"/>
+            <CheckBox Content="Name" Name="CheckBox6" Checked="CheckBox6_Checked" Unchecked="CheckBox6_Unchecked"/>
+            <CheckBox Content="Data" Name="CheckBox7" Checked="CheckBox7_Checked" Unchecked="CheckBox7_Unchecked"/>
+        </StackPanel>
+        <Menu Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Background="#FFF0F0F0" Grid.Column="2" Margin="303,0,0,0">
+            <MenuItem Header="_" Click="MinimizeClick"/>
+            <MenuItem Header="O" Click="MaximizeClick"/>
+            <MenuItem Header="X" VerticalAlignment="Stretch" Click="ExitClick" />
+        </Menu>
+        <StackPanel HorizontalAlignment="Left" Height="40" Margin="10,0,0,0.333" VerticalAlignment="Bottom" Width="378">
+            <TextBlock x:Name="PathToFile" TextWrapping="Wrap"  />
+            <TextBlock x:Name="NumOfLines" TextWrapping="Wrap"  />
+
+        </StackPanel>
+
+
+
 
 
     </Grid>

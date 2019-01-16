@@ -1,0 +1,18 @@
+﻿Time++;Tipe;part: ;messege;comment;name;data
+19.10.2018 12:44:08.508;INFO;Engine.Main: ;built type is DEBUG;comment;name;data
+19.10.2018 12:44:08.524;INFO;Engine.Settings: ;SettingsFile: value are loaded from ini for SoftwareRendering;;comment;name;data
+19.10.2018 12:44:08.524;INFO;Engine.Settings: ;SettingsFile: value are loaded from ini for Markup;comment;name;data
+19.10.2018 12:44:08.524;INFO;Engine.Settings: ;SettingsFile: value are loaded from ini for Left;comment;name;data
+19.10.2018 12:44:08.539;INFO;Engine.Settings: ;SettingsFile: value are loaded from ini for Top;comment;name;data
+19.10.2018 12:44:08.539;INFO;Engine.Settings: ;SettingsFile: value are loaded from ini for Language;comment;name;data
+19.10.2018 12:44:08.539;INFO;Engine.Settings: ;_softwareRendering = false;comment;name;data
+19.10.2018 12:44:08.555;WORK;Engine.Settings: ;_markup = false;comment;name;data
+19.10.2018 12:44:08.555;INFO;Engine.Settings: ;_left = 0;comment;name;data
+19.10.2018 12:44:08.555;INFO;Engine.Settings: ;_top = 0;comment;name;data
+19.10.2018 12:44:08.555;WORK;Engine.Settings: ;_width = 0;comment;name;data
+19.10.2018 12:44:08.571;INFO;Engine.Settings: ;_height = 0;comment;name;data
+19.10.2018 12:44:08.571;INFO;Engine.Settings: ;_language = ru;comment;name;data
+19.10.2018 12:44:08.945;WARN;ChartsService.SdkWorkspaceSet: ;Can't read the producing agency entry from catalog.;comment;name;data
+19.10.2018 12:44:08.961;WARN;ChartsService.SdkWorkspaceSet: ;Can't read the producing agency entry from catalog.;comment;name;data
+19.10.2018 12:44:08.976;WORK;ChartsService.SdkWorkspaceSet: ;Can't read the producing agency entry from catalog.;comment;name;data
+19.10.2018 12:44:08.992;WARN;ChartsService.SdkWorkspaceSet: ;Can't read the producing agency entry from catalog.;comment;name;data
