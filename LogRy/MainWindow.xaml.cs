@@ -29,12 +29,10 @@ namespace LogRy
             OpenSum.Text = $"Number of application launches: {Properties.Settings.Default.open_sum.ToString()}";
             Properties.Settings.Default.Save();
         }
-        
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
         }
-
 
     public void OpenNewLogClick(object sender, RoutedEventArgs e)
         {
@@ -103,8 +101,6 @@ namespace LogRy
                 this.WindowState = WindowState.Maximized;
         }
 
-        
-
         private void ClearClick(object sender, RoutedEventArgs e)
         {
             DataGrid.ItemsSource = null;
@@ -131,7 +127,6 @@ namespace LogRy
         {
             if (DataGrid.Columns.Count > 0)
             {
-               
                 DataGrid.Columns[0].Visibility = Visibility.Collapsed;
                 
             }
@@ -281,7 +276,6 @@ namespace LogRy
 
         }
 
-      
 
         private void DataGrid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
@@ -289,8 +283,6 @@ namespace LogRy
             if (DataGrid.CurrentColumn!=null)
             {
                 int column = DataGrid.CurrentColumn.DisplayIndex;
-
-
                 if (path != null && column == 1)
                 {
                     string s = path.Level;
@@ -299,23 +291,18 @@ namespace LogRy
                         int columnIndex = DataGrid.CurrentColumn.DisplayIndex;
                         DataGridCell Cell = new DataGridCell();
                         DataTabRes p = DataGrid.Items[i] as DataTabRes;
-
                         if (p.Level == s)
                         {
                             DataGridRow Row = GetRow(DataGrid, i);
-
                             var cell = GetCell(DataGrid, Row, 1);
                             if (cell == null) return;
                             var item = Row.Item as DataTabRes;
                             if (item == null) return;
-
                             var value = item.Level;
                             Random rand = new Random();
                             Brush brush = new SolidColorBrush(Color.FromRgb((byte)rand.Next(0, 256), (byte)rand.Next(0, 256), (byte)rand.Next(0, 256)));
                             cell.Background = brush;
-
                         }
-
                     }
                 }
                 if (path != null && column == 2)
@@ -326,16 +313,13 @@ namespace LogRy
                         int columnIndex = DataGrid.CurrentColumn.DisplayIndex;
                         DataGridCell Cell = new DataGridCell();
                         DataTabRes p = DataGrid.Items[i] as DataTabRes;
-
                         if (p.Content == s)
                         {
                             DataGridRow Row = GetRow(DataGrid, i);
-
                             var cell = GetCell(DataGrid, Row, 2);
                             if (cell == null) return;
                             var item = Row.Item as DataTabRes;
                             if (item == null) return;
-
                             var value = item.Content;
                             Random rand = new Random();
                             Brush brush = new SolidColorBrush(Color.FromRgb((byte)rand.Next(0, 256), (byte)rand.Next(0, 256), (byte)rand.Next(0, 256)));
@@ -347,11 +331,9 @@ namespace LogRy
                 }
             }
         }
-
         public static DataGridRow GetRow(DataGrid grid, int index)
         {
             var row = grid.ItemContainerGenerator.ContainerFromIndex(index) as DataGridRow;
-
             if (row == null)
             {
                 // may be virtualized, bring into view and try again
@@ -360,7 +342,6 @@ namespace LogRy
             }
             return row;
         }
-
         public static T GetVisualChild<T>(Visual parent) where T : Visual
         {
             T child = default(T);
@@ -376,14 +357,11 @@ namespace LogRy
             }
             return child;
         }
-
         public static DataGridCell GetCell(DataGrid host, DataGridRow row, int columnIndex)
         {
             if (row == null) return null;
-
             var presenter = GetVisualChild<DataGridCellsPresenter>(row);
             if (presenter == null) return null;
-
             var cell = (DataGridCell)presenter.ItemContainerGenerator.ContainerFromIndex(columnIndex);
             if (cell == null)
             {
@@ -397,13 +375,11 @@ namespace LogRy
         {
             if (Properties.Settings.Default.Path!=null)
             MI.Header = Properties.Settings.Default.Path;
-           
         }
 
         private void MI_MouseLeave(object sender, MouseEventArgs e)
         {
             MI.Header = "Open last file ->";
-
         }
 
         private void MI_Click(object sender, RoutedEventArgs e)
@@ -504,10 +480,7 @@ namespace LogRy
                     default:
                         break;
                 }
-
-
             }
-
         }
         public string DateTime { get; set; }
         public string Level { get; set; }
