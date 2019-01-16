@@ -125,6 +125,10 @@ namespace LogRy
             }
             if (i == 3)
             {
+                DataGrid.Columns[0].Header = Properties.Settings.Default.CheckBox1;
+                DataGrid.Columns[1].Header = Properties.Settings.Default.CheckBox2;
+                DataGrid.Columns[2].Header = Properties.Settings.Default.CheckBox3;
+
                 CheckBox4.Visibility = Visibility.Collapsed;
                 CheckBox5.Visibility = Visibility.Collapsed;
                 CheckBox6.Visibility = Visibility.Collapsed;
@@ -133,6 +137,11 @@ namespace LogRy
             }
             if (i == 4)
             {
+                DataGrid.Columns[0].Header = Properties.Settings.Default.CheckBox1;
+                DataGrid.Columns[1].Header = Properties.Settings.Default.CheckBox2;
+                DataGrid.Columns[2].Header = Properties.Settings.Default.CheckBox3;
+                DataGrid.Columns[3].Header = Properties.Settings.Default.CheckBox4;
+
                 CheckBox4.Visibility = Visibility.Visible;
                 CheckBox5.Visibility = Visibility.Collapsed;
                 CheckBox6.Visibility = Visibility.Collapsed;
@@ -140,6 +149,12 @@ namespace LogRy
             }
             if (i == 5)
             {
+                DataGrid.Columns[0].Header = Properties.Settings.Default.CheckBox1;
+                DataGrid.Columns[1].Header = Properties.Settings.Default.CheckBox2;
+                DataGrid.Columns[2].Header = Properties.Settings.Default.CheckBox3;
+                DataGrid.Columns[3].Header = Properties.Settings.Default.CheckBox4;
+                DataGrid.Columns[4].Header = Properties.Settings.Default.CheckBox5;
+
                 CheckBox4.Visibility = Visibility.Visible;
                 CheckBox5.Visibility = Visibility.Visible;
                 CheckBox6.Visibility = Visibility.Collapsed;
@@ -147,6 +162,13 @@ namespace LogRy
             }
             if (i == 6)
             {
+                DataGrid.Columns[0].Header = Properties.Settings.Default.CheckBox1;
+                DataGrid.Columns[1].Header = Properties.Settings.Default.CheckBox2;
+                DataGrid.Columns[2].Header = Properties.Settings.Default.CheckBox3;
+                DataGrid.Columns[3].Header = Properties.Settings.Default.CheckBox4;
+                DataGrid.Columns[4].Header = Properties.Settings.Default.CheckBox5;
+                DataGrid.Columns[5].Header = Properties.Settings.Default.CheckBox6;
+
                 CheckBox4.Visibility = Visibility.Visible;
                 CheckBox5.Visibility = Visibility.Visible;
                 CheckBox6.Visibility = Visibility.Visible;
